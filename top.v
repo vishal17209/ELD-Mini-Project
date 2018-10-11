@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
-module top(clk,next, rst, cathode,anode, num);
+module top(clk,next, rst, cathode,anode, num, init);
+    input [7:0] init;
     input clk,next,rst;
     input [3:0] num;
     output [7:0] cathode;
@@ -19,9 +20,10 @@ module top(clk,next, rst, cathode,anode, num);
     
     //example_8_bit #(.N(4),.INITIAL(5)) I(deb_nxt,deb_rst,seq_out, char_polynomial);
     
-    blk_mem_gen_0 C(clk,1,num,char_poly);
-    
-    n_bit_pn #(.INITIAL(2)) D(deb_nxt,deb_rst,seq_out,num,char_poly[12:0]);
+    blk_mem_gen_0 C(clk,num,char_poly);
+
+//    output_mask O(clk, char_poly, init, num, mask_in, seq_out);
+    n_bit_pn D(deb_nxt, deb_rst, seq_out, num, char_poly[12:0], init);
     
     //bcd_bin_8_bit A({4'b0,seq_out},thousand,hundred,ten,one);
     bcd_n_bit #(13) A(seq_out,hundred,ten,one,thousand);
