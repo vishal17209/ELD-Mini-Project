@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 
-module top(clk,next, rst, cathode,anode, num, init);
-    input [7:0] init;
+module top(clk,next, rst, cathode,anode, num, init, mask);
+    input [5:0] init;
+    input [5:0] mask;
     input clk,next,rst;
     input [3:0] num;
     output [7:0] cathode;
@@ -21,13 +22,12 @@ module top(clk,next, rst, cathode,anode, num, init);
     //example_8_bit #(.N(4),.INITIAL(5)) I(deb_nxt,deb_rst,seq_out, char_polynomial);
     
     blk_mem_gen_0 C(clk,num,char_poly);
-
-//    output_mask O(clk, char_poly, init, num, mask_in, seq_out);
+    
     n_bit_pn D(deb_nxt, deb_rst, seq_out, num, char_poly[12:0], init);
     
     //bcd_bin_8_bit A({4'b0,seq_out},thousand,hundred,ten,one);
-    bcd_n_bit #(13) A(seq_out,hundred,ten,one,thousand);
+    bcd_n_bit #(1) A(masked_out,hundred,ten,one,thousand);
     seven_seg_onboard B(one,ten,hundred,thousand,cathode,anode,ssd_clk);
     
-    
+    output_mask o1(clk, seq_out, mask, masked_out);
 endmodule

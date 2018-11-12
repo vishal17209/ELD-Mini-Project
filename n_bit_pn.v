@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 
-
 module n_bit_pn(next,reset,seq,N, char_poly, init);
     input [7:0] init;
     input next,reset;
