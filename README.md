@@ -15,7 +15,7 @@ The functionality of PN Sequence Generator block in MATLAB is implemented on ver
 The current number is displayed on the on-board Seven Segment Display using the cathode and anode outputs.
 
 ### How it works
-For a n-bit input length the sequence is 2^n-1 numbers long and displays the numbers from 1 to 2^n-1 randomly. To generate the sequence of maximal length (2^n-1) characteristic polynomials of degree n are stored in a Block ROM. The sequence generator is implemented using shift registers and feedback taps. The output mask is used to convert the sequence into a random binary sequence.
+For a n-bit input length the sequence is 2<sup>n</sup>-1 numbers long and displays the numbers from 1 to 2<sup>n</sup>-1 randomly. To generate the sequence of maximal length (2<sup>n</sup>-1) characteristic polynomials of degree n are stored in a Block ROM. The sequence generator is implemented using shift registers and feedback taps. The output mask is used to convert the sequence into a random binary sequence.
 
 ### How to use the code
 top_init.v file contains the code for the PN sequence generator. Download all the files and import into vivado project. Import the block ram IP (.xci file) from the blk_mem_gen_0 folder. Add pn.xdc as the constraint file and generate the bitstream. top_init.bit is also given if the code needs to be directly used on the Basys3 Board.
