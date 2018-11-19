@@ -4,12 +4,12 @@
 The functionality of PN Sequence Generator block in MATLAB is implemented on verilog and tested on Basys3 FPGA. It generates maximal length pseudo-random sequences of variable length (2-12 bits). 
 
 ### Input Parameters
-[3:0] num: 4-bit input for the length of the sequence. Valid lengths are 2-12
-[5:0] init: 6-bit input for the initial value of the sequence. The initial value should be non-zero
-[5:0] mask: 6-bit input for the output mask. If mask = 0, then then the normal sequence is displayed otherwise the mask is applied and a pseudo-random binary sequence is displayed of the given length.
-next: Left push button (W19) is used to display the next number in the sequence
-rst: Right push button (T17) is used to reset the sequence to initial value
-clk: 100MHz board clock
+<b>[3:0] num</b>: 4-bit input for the length of the sequence. Valid lengths are 2-12  
+<b>[5:0] init</b>: 6-bit input for the initial value of the sequence. The initial value should be non-zero  
+<b>[5:0] mask</b>: 6-bit input for the output mask. If mask = 0, then then the normal sequence is displayed otherwise the mask is applied and a pseudo-random binary sequence is displayed of the given length   
+<b>next</b>: Left push button (W19) is used to display the next number in the sequence  
+<b>rst</b>: Right push button (T17) is used to reset the sequence to initial value  
+<b>clk</b>: 100MHz board clock  
 
 ### Output Parameters
 The current number is displayed on the on-board Seven Segment Display using the cathode and anode outputs.
